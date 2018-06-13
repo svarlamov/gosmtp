@@ -217,6 +217,10 @@ func (c *conn) readCommand() error {
 		c.server.logfd("<%d %s\n", 500, "Command not recognized")
 		return c.text.PrintfLine("%d %s", 500, "Command not recognized")
 	}
+	
+	// Convert to uppercase for the switch statement
+	parts[0] = strings.ToUpper(parts[0])
+
 	switch parts[0] {
 	case "HELO":
 		if len(parts) < 2 {
