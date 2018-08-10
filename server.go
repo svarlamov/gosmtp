@@ -95,6 +95,7 @@ type muxEntry struct {
 }
 
 func (srv *Server) logfd(format string, args ...interface{}) {
+	// Comitting from EXLcode
 	if srv.Debug {
 		srv.logf(format, args...)
 	}
